@@ -205,8 +205,8 @@ MonoBehaviour:
     onCollisionObject:
       m_PersistentCalls:
         m_Calls: []
-  jumpForce: 20
-  jumpTime: 0.5
+  jumpForce: 50
+  jumpTime: 0.2
   playerName: Youmi
   bulletObject: {fileID: 1415830198985441955, guid: 05a802fb50f762749b8d301a18ad7de2, type: 3}
   maxBulletCount: 5
