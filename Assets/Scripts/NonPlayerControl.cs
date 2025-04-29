@@ -33,7 +33,7 @@ public class NonPlayerControl : MonoBehaviour
             PlayerControl pc = collision.gameObject.GetComponent<PlayerControl>();
             pc.usingUnit.health -= unitData.Attack - pc.usingUnit.Defend;
             AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("damage"), Camera.main.transform.position);
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, pc.jumpForce * 50));
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, pc.jumpForce * 20));
             collision.gameObject.GetComponent<Animator>().SetTrigger("Damage");
         }
     }
@@ -50,7 +50,7 @@ public class NonPlayerControl : MonoBehaviour
                     PlayerControl pc = collision.gameObject.GetComponent<PlayerControl>();
                     pc.usingUnit.health -= unitData.Attack - pc.usingUnit.Defend;
                     AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("damage"), Camera.main.transform.position);
-                    collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, pc.jumpForce * 50));
+                    collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, pc.jumpForce * 20));
                     collision.gameObject.GetComponent<Animator>().SetTrigger("Damage");
                 }
             }

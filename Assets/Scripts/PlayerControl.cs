@@ -37,13 +37,17 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Vertical")>0&&jumpLeftTime>0)
+        if (Input.GetAxis("Vertical") > 0 && jumpLeftTime > 0)
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
             if (jumpSound != null && jumpLeftTime == jumpTime)
                 AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position);
-            jumpLeftTime = jumpLeftTime - Time.deltaTime;
+            jumpLeftTime = jumpLeftTime - Time.fixedDeltaTime;
         }
+    }
+
+    private void FixedUpdate()
+    {
         transform.SetPositionAndRotation(new Vector3(initialPos.x, transform.position.y, initialPos.z), initialRotate);
         GameManager.UpdateKeyState();
         if (GameManager.GetKeyDown(GameManager.AxisKeyID.Fire1) && bulletObject != null && bulletCount < maxBulletCount)
